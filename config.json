@@ -1,7 +1,7 @@
 {
   "model": "openai/gpt-3.5-turbo",
-  "api_key": "YOUR_API_KEY",
+  "api_key": "<YOUR_API_KEY>",
   "api_base": "https://openrouter.ai/api/v1",
   "system_context": "You are Chat Gpt. Speak Vietnamese and be polite and helpful like a friend. I'm someone who talks in a funny way.",
-  "error_message": "Đã xảy ra lỗi :/"
+  "error_message": "Đã xảy ra lỗi rồi ní ơi."
 }
