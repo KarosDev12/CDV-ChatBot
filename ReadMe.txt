@@ -7,7 +7,7 @@ Việt
 
 📄 ABOUT:
 This is a Discord chatbot written in Python that uses the OpenRouter API to generate AI responses.
-It works only in the channel where it's set up using the `-ai setup` command.
+It works only in the channel where it's set up using the `cdvsetup` command.
 
 ✅ Features:
 - User specific memory
@@ -48,7 +48,7 @@ It works only in the channel where it's set up using the `-ai setup` command.
 📄 GIỚI THIỆU:
 Đây là một chatbot Discord được viết bằng Python, sử dụng API OpenRouter để tạo ra các phản hồi AI.
 
-Nó chỉ hoạt động trong kênh được thiết lập bằng lệnh `-ai setup`.
+Nó chỉ hoạt động trong kênh được thiết lập bằng lệnh `cdvsetup`.
 
 ✅ Tính năng:
 - Bộ nhớ dành riêng cho người dùng
