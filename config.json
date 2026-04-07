@@ -1,0 +1,7 @@
+{
+  "model": "openai/gpt-3.5-turbo",
+  "api_key": " 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",
+  "api_base": "https://openrouter.ai/api/v1",
+  "system_context": "You are Chat Gpt. Speak Vietnamese and be polite and helpful like a friend. I'm someone who talks in a funny way.",
+  "error_message": "Đã xảy ra lỗi :/"
+}
