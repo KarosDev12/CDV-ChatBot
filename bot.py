@@ -28,11 +28,11 @@ active_channel_id = config.get("channel_id")  # Load saved channel
 
 @bot.event
 async def on_ready():
-    print(f"Cng ng Vit ")
-    print(f"Logged in as {bot.user}!!")
+    print(f"Cộng Đồng Việt ")
+    print(f"Code của bot {bot.user} đã chạy thành công!!")
 
     await bot.change_presence(
-        activity=discord.Activity(type=discord.ActivityType.watching, name="Cng ng Vit "),
+        activity=discord.Activity(type=discord.ActivityType.watching, name="Cộng Đồng Việt 🔥"),
         status=discord.Status.idle
     )
 
@@ -43,7 +43,7 @@ async def setup(ctx):
     active_channel_id = ctx.channel.id
     config["channel_id"] = active_channel_id
     save_config(config)
-    await ctx.send(f" | y hin l knh ang hot ng  tr chuyn vi bot.: <#{active_channel_id}>")
+    await ctx.send(f"📬 | Đây sẽ là kênh chat với bot.: <#{active_channel_id}>")
 
 @bot.command(name="unsetup")
 @commands.has_permissions(administrator=True)
@@ -53,17 +53,17 @@ async def unsetup(ctx):
         removed_channel = config.pop("channel_id", None)
         save_config(config)
         active_channel_id = None
-        await ctx.send(f"Thit lp knh  b xa: <#{removed_channel}>")
+        await ctx.send(f"Kênh chat với bot đã bị xóa: <#{removed_channel}>")
     else:
-        await ctx.send(" | Khng tm thy knh thit lp no  xa.")
+        await ctx.send(" | Kênh này đã cho chat đâu mà xóa trời!!!")
 
 @bot.command(name="help")
 async def custom_help(ctx):
-    help_text = "__**AI BOT CMDS :**__\n" \
-                "> **`cdvsetup`** - chnh bot chat  knh \n" \
-                "> **`cdvunsetup`** - xa bot khi knh \n" \
-                "> **`cdvclearmemory`** - xa b nh bot\n" \
-                "> **`cdvhelp`** - hin th lnh h tr"
+    help_text = "💻 __**AI BOT CMDS :**__ 💻\n" \
+                "> **`cdvsetup`** - chỉnh bot chat tại kênh đó\n" \
+                "> **`cdvunsetup`** - xóa bot khỏi kênh đó\n" \
+                "> **`cdvclearmemory`** - xóa bộ nhớ bot\n" \
+                "> **`cdvhelp`** - hiển thị lệnh hỗ trợ"
     await ctx.send(help_text)
 
 @bot.command(name="clearmemory")
@@ -71,7 +71,7 @@ async def clear_memory(ctx):
     user_id = str(ctx.author.id)
     if user_id in user_memory:
         del user_memory[user_id]
-    await ctx.send(" | B nh ca bn  c xa!")
+    await ctx.send("✅ | Bộ nhớ bot đã xóa!")
 
 @bot.event
 async def on_message(message):
@@ -111,14 +111,14 @@ async def on_message(message):
                 if resp.status != 200:
                     error_detail = await resp.text()
                     print(f"[API ERROR] {resp.status}: {error_detail}")
-                    await message.reply(config.get("error_message", "❌ | API Lỗi, Vui lòng thử lại sau."))
+                    await message.reply(config.get("error_message", "❌ | API Lỗi, vui lòng thử lại."))
                     return
                 response = await resp.json()
                 reply = response["choices"][0]["message"]["content"]
                 user_memory[user_id].append({"role": "assistant", "content": reply})
                 await message.reply(reply)
     except Exception as e:
-        await message.reply(config.get("error_message", " | Li ni b  xy ra."))
+        await message.reply(config.get("error_message", "📡 | Lỗi đã xảy ra."))
         print(f"[ERROR] {e}")
 
 bot.run("<YOUR_DISCORD_BOT_TOKEN>")
