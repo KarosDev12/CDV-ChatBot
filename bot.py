@@ -111,7 +111,7 @@ async def on_message(message):
                 if resp.status != 200:
                     error_detail = await resp.text()
                     print(f"[API ERROR] {resp.status}: {error_detail}")
-                    await message.reply(config.get("error_message", "❌ | API Error, try again later."))
+                    await message.reply(config.get("error_message", "❌ | API Lỗi, Vui lòng thử lại sau."))
                     return
                 response = await resp.json()
                 reply = response["choices"][0]["message"]["content"]
